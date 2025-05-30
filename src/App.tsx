@@ -1,5 +1,6 @@
 import { FC, useState } from 'react';
 import todosFromServer from './api/todos';
+import usersFromServer from './api/users';
 import { getUserById } from './entities/user/utils/getUserById';
 import { TodoForm } from './components/TodoForm';
 import { TodoList } from './components/TodoList';
@@ -9,7 +10,7 @@ export const App: FC = () => {
   const [todos, setTodos] = useState(() => {
     return todosFromServer.map(todo => ({
       ...todo,
-      user: getUserById(todo.userId),
+      user: getUserById(usersFromServer, todo.userId),
     }));
   });
 

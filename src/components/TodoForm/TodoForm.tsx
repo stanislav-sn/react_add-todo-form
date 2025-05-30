@@ -42,7 +42,7 @@ export const TodoForm: FC<TodoFormProps> = ({ todos, setTodos }) => {
         title,
         userId,
         completed: false,
-        user: getUserById(userId),
+        user: getUserById(usersFromServer, userId),
       };
 
       return [...currentTodos, newTodo];
